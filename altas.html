@@ -11,7 +11,7 @@
 
 <body>
     <h1>Agregar Productos al Inventario</h1>
-    <div class="img"><img src="img/logo_codo.png" alt="codoacodo" width="100px"></div>
+    <div class="img"><img src="img/Logo.jpg" alt="PetFam" width="100px"></div>
     <h3>Codo a Codo 2023</h3>
     <form id="formulario">
         <label for="codigo">Código:</label>
@@ -31,11 +31,8 @@
     </form>
 
     <script>
-// Este script maneja el evento de envío del formulario, obtiene los valores ingresados por el usuario, realiza una solicitud POST al servidor con los datos del producto y maneja la respuesta del servidor.
-
-
         //const URL = "http://127.0.0.1:5000/"
-        const URL = "https://MISITIO.pythonanywhere.com/"
+        const URL = "https://Picolina38.pythonanywhere.com/"
         // Capturamos el evento de envío del formulario
         document.getElementById('formulario').addEventListener('submit', function (event) {
             event.preventDefault(); // Evitamos que se envie el form por ahora
@@ -58,13 +55,10 @@
             fetch(URL + 'productos', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json' //indica que se están enviando datos en formato JSON
+                    'Content-Type': 'application/json'
                 },
-                //Se convierte el objeto producto a JSON utilizando JSON.stringify() antes de enviarlo como cuerpo de la solicitud.
-                body: JSON.stringify(producto) 
+                body: JSON.stringify(producto)
             })
-            
-            //Después de realizar la solicitud POST, se utiliza el método then() para manejar la respuesta del servidor.
                 .then(function (response) {
                     // Código para manejar la respuesta
                     if (response.ok) {
@@ -75,10 +69,8 @@
                         throw new Error('Error al agregar el producto.');
                     }
                 })
-                
-                //Respuesta OK, se limpia formulario.
                 .then(function (data) {
-                    alert('Producto agregado correctamente.'); 
+                    alert('Producto agregado correctamente.');
                     //Limpiamos el formulario.
                     document.getElementById('codigo').value = "";
                     document.getElementById('descripcion').value = "";

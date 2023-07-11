@@ -11,7 +11,7 @@
 
 <body>
     <h1>Baja de Productos</h1>
-    <div class="img"><img src="img/logo_codo.png" alt="codoacodo" width="100px"></div>
+    <div class="img"><img src="img/Logo.jpg" alt="PetFam" width="100px"></div>
     <h3>Codo a Codo 2023</h3>
     <table>
         <thead>
@@ -29,7 +29,6 @@
                 <td>{{ producto.descripcion }}</td>
                 <td>{{ producto.cantidad }}</td>
                 <td align="right">{{ producto.precio }}</td>
-                <!-- Al hacer clic en el botón"Eliminar" de una fila, se elimina el producto tanto en la API como en la lista local, actualizando la interfaz en tiempo real. -->
                 <td><button @click="eliminarProducto(producto.codigo)">Eliminar</button></td>
             </tr>
         </tbody>
@@ -39,29 +38,20 @@
         <a href="menu.html">Menu principal</a>
     </div>
 
-    <!-- Se incluye la biblioteca Vue.js -->
     <script src="https://unpkg.com/vue@next"></script>
-
     <script>
         //const URL = "http://127.0.0.1:5000/"
-        const URL = "https://MISITIO.pythonanywhere.com/"
+        const URL = "https://Picolina38.pythonanywhere.com/"
 
-        //Se crea una instancia de Vue mediante const app = Vue.createApp({...}). Aquí se define la lógica de Vue para la página.
         const app = Vue.createApp({
-
-            //En la sección data(), se declara un objeto productos que se utilizará para almacenar los datos de los productos obtenidos dela API.
             data() {
                 return {
                     productos: []
                 }
             },
-
-            //Se definen 2 métodos
             methods: {
-                
                 obtenerProductos() {
-                    //Realiza una solicitud GET a la API para obtener la lista de productos. Si la respuesta es exitosa, se asigna la respuesta JSON a this.productos, que actualiza los datos en la interfaz.
-                    // Obtenemos el contenido del inventario.
+                    // Obtenemos el contenido del inventario
                     fetch(URL + 'productos')
                         .then(response => {
                             if (response.ok) {
@@ -81,9 +71,7 @@
                             alert('Error al obtener los productos.');
                         });
                 },
-
                 eliminarProducto(codigo) {
-                    //Se activa cuando se hace clic en el botón "Eliminar" de una fila de producto. Realiza una solicitud DELETE a la API para eliminar el producto con el código especificado. Si la respuesta es exitosa, se actualiza la lista local productos filtrando el producto eliminado y se reflejan los cambios en la interfaz.
                     // Eliminamos el producto de la fila seleccionada
                     fetch(URL + `productos/${codigo}`, { method: 'DELETE' })
                         .then(response => {
@@ -104,7 +92,7 @@
                 }
             },
             mounted() {
-                //Al cargar la página, se llama al método obtenerProductos(). Esto asegura que se obtenga la lista de productos y se muestren en la tabla.
+                //Al cargar la página, obtenemos la lista de productos
                 this.obtenerProductos();
             }
         });
