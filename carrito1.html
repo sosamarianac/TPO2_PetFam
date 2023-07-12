@@ -31,7 +31,7 @@
           <td>{{ producto.codigo }}</td>
           <td>{{ producto.descripcion }}</td>
           <td align="right">{{ producto.cantidad }}</td>
-          <td align="right">&nbsp; &nbsp; {{ producto.precio }}</td>
+          <td align="right">&nbsp; &nbsp; ${{ Intl.NumberFormat('de-DE').format(producto.precio) }}</td>
           <td>
             <button @click="agregarAlCarrito(producto)">&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;</button>
             <button @click="restarDelCarrito(producto)">&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;</button>
@@ -56,10 +56,13 @@
             <td>{{ item.codigo }}</td>
             <td>{{ item.descripcion }}</td>
             <td align="right">{{ item.cantidad }}</td>
-            <td align="right">&nbsp; &nbsp; {{ item.precio }}</td>
+            <td align="right">&nbsp; &nbsp; ${{ Intl.NumberFormat('de-DE').format(item.precio) }}</td>
           </tr>
         </tbody>
       </table>
+      <div>
+        <h4>Total: ${{ Intl.NumberFormat('de-DE').format(calcularTotalCarrito()) }}</h4>
+      </div>
     </div>
 
     <div v-if="!mostrarCarrito" class="contenedor-centrado">
@@ -122,6 +125,14 @@
               alert('Error al agregar el producto al carrito.')
             })
         },
+        calcularTotalCarrito() {
+            let total=0;
+            for (const item of this.carrito) {
+              total += item.precio * item.cantidad
+            }
+            return total;
+        },
+
         restarDelCarrito(producto) {
           fetch(URL + 'carrito', {
             method: 'DELETE',
