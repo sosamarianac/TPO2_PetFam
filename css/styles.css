@@ -113,7 +113,7 @@ nav {
 }
 
 .navbar-menu a:hover {
-    color: yellowgreen;
+    color: var(--mostaza);
     font-size: 2.4rem;
 }
 /* Fin del Nav */
@@ -445,7 +445,7 @@ input[type="tel"] {
 input[type="submit"],
 button {
 
-    background-color: #007bff;
+    background-color: var(--azul);
     color: #fff;
     padding: 0.5rem;
     border: none;
@@ -459,10 +459,11 @@ button {
 
 input[type="submit"]:hover,
 button:hover {
-    background-color: #0056b3;
+    background-color: var(--mostaza);
     font-weight: bold;
     box-shadow: 0 0 5px rgba(19, 22, 20, 0.5);
     cursor: pointer;
+    color: var(--azul);
 }
 
 /* inicio seccion tips antes de adoptar */
@@ -637,6 +638,7 @@ main .adopt img {
 .card .back h3 {
     margin-top: 15px;
     font-size: 2.5rem;
+    color: var(--blanco);
 
 }
 
@@ -658,6 +660,11 @@ main .adopt img {
     padding: 5px;
     font-size: 1.3rem;
 
+}
+.btn-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* efecto de rotacion en la tarjeta*/
@@ -862,6 +869,7 @@ main .adopt img {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    color: var(--azul);
 }
 
 .popup-close {
@@ -1006,7 +1014,7 @@ footer {
 
 .img-menu h1, h2, h3, h4, h5, h6 {
     text-align: center;
-    color: #007bff;
+    color: var(--azul);
 }
 
 .img-menu {

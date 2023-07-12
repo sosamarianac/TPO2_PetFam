@@ -1,7 +1,9 @@
 /* Estilos para todo el proyecto */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    font-family: 'Roboto', sans-serif;
+    font-size: 90%;
+    background-image:url(/Assets/14710.jpg);
+    background-size: cover;
 }
 
 .contenedor-centrado {
@@ -11,7 +13,7 @@ body {
 }
 
 p {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f9f9f9;
     max-width: 400px;
     margin: 0 auto;
@@ -20,7 +22,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
-    color: #007bff;
+    color: #055895;
 }
 
 .img {
@@ -78,7 +80,7 @@ input[type="submit"]:hover {
 button {
     padding: 8px;
     margin:4px;
-    background-color: #007bff;
+    background-color: #055895;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -87,20 +89,38 @@ button {
 
 button:hover {
     background-color: #0056b3;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(19, 22, 20, 0.5);
+    cursor: pointer;
 }
 
-a {
+.contenedor-centrado a {
     padding: 8px;
     margin:4px;
-    background-color: #fdab13;
+    background-color: #055895;
     color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
-    font-size: 85%;
+    font-size: 90%;
 }
 
-a:hover {
-    background-color: #cd7b00;
+.contenedor-centrado a:hover {
+    background-color: #0056b3;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(19, 22, 20, 0.5);
+    cursor: pointer;
+}
+.logo {
+    width: 99%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-logo {
+    width: 1px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
 }
